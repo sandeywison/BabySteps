@@ -66,14 +66,14 @@ namespace PrimeiroProjeto.Classes
             set { _saldoDaConta = value;  }
         }
 
-        public double Deposito(double vlrDep)
+        public void Deposito(double vlrDep)
         {
-            return _saldoDaConta + vlrDep;
+            _saldoDaConta += + vlrDep;
         }
 
-        public double Saque(double vlrSaq)
+        public void Saque(double vlrSaq)
         {
-            return (_saldoDaConta - 5) - vlrSaq;
+            _saldoDaConta = (_saldoDaConta - 5) - vlrSaq;
         }
 
         public override string ToString()

@@ -263,6 +263,7 @@ namespace PrimeiroProjeto
 
             Banco b = new Banco();
             Console.WriteLine("Vamos criar sua conta?");
+            Console.WriteLine();
             Console.WriteLine("Por favor digite seu nome abaixo.");
             b.Titular = Console.ReadLine();
             Console.Write("Entre com o número da conta: ");
@@ -284,18 +285,49 @@ namespace PrimeiroProjeto
                 Console.WriteLine();
                 Console.WriteLine("Confira os dados de sua conta abaixo.");
                 Console.WriteLine();
-            } else
+                Console.WriteLine(b);
+            }
+
+            Console.WriteLine("Você gostaria de fazer um depósito ou saque? (d) para depósito, (s) para saque e (n) para nenhum");
+            string answ = Console.ReadLine();
+
+            if(answ == "s" | answ == "S")
             {
-                Console.WriteLine("Parabéns " + b.Titular + " você acabou de criar sua conta!");
+                Console.Write("Quanto você gostaria de sacar? ");
+                b.Saque(double.Parse(Console.ReadLine()));
                 Console.WriteLine();
-                Console.WriteLine("Confira os dados de sua conta abaixo.");
+                Console.Write("Deseja fazer algum depósito?(s/n)" );
+                    string answ2 = Console.ReadLine();
+                if(answ2 == "s" | answ2 == "S")
+                {
+                    Console.Write("Quanto gostaria de depositar? ");
+                    b.Deposito(double.Parse(Console.ReadLine()));
+                } 
+          
+            } else if(answ == "d" | answ == "D") 
+            {
+                Console.WriteLine("Quanto você gostaria de depositar?");
+                b.Deposito(double.Parse(Console.ReadLine()));
                 Console.WriteLine();
+                Console.Write("Deseja fazer algum saque?(s/n)");
+                string answ3 = Console.ReadLine();
+                if (answ3 == "s" | answ3 == "S")
+                {
+                    Console.Write("Quanto gostaria de sacar? ");
+                    b.Saque(double.Parse(Console.ReadLine()));
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Operação finalizada. Verifique abaixo os dados da sua conta");
+                    Console.WriteLine(b);
+                }
+                
             }
             Console.WriteLine();
-
-
+            Console.WriteLine("Operação finalizada. Verifique abaixo os dados da sua conta");
             Console.WriteLine(b);
-            
+
 
 
 
